@@ -16,11 +16,11 @@
     <form name="loginForm">
       <table>
         <tr>
-          <td><input type="email" name="userName" value="" placeholder="Email Id" ng-model="userName"></td>
+          <td><input type="email" name="userName" value="" placeholder="Email Id" ng-model="userName" required></td>
           <td><span ng-show="loginForm.userName.$touched && loginForm.userName.$invalid">Email Id is invalid</span></td>
         </tr>
         <tr>
-          <td><input type="password" name="pwd" value="" placeholder="Password" ng-model="pwd"></td>
+          <td><input type="password" name="pwd" value="" placeholder="Password" ng-model="pwd" required></td>
           <!--<td><span ng-show="loginForm.pwd.$touched">Password can not be empty.</span></td>-->
         </tr>
         <tr>
