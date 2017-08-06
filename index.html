@@ -21,12 +21,13 @@
         </tr>
         <tr>
           <td><input type="password" name="pwd" value="" placeholder="Password" ng-model="pwd"></td>
-          <td><span ng-show="loginForm.pwd.$touched">Password can not be empty.</span></td>
+          <!--<td><span ng-show="loginForm.pwd.$touched">Password can not be empty.</span></td>-->
         </tr>
         <tr>
           <td><input type="submit" name="" value="Login" ng-click="submit()" ng-disabled="loginForm.$invalid"></td>
         </tr>
       </table>
     </form>
+    <span>{{codeStatus}}</span>
   </body>
 </html>
