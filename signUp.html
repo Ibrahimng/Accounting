@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sign up new User</title>
+    <script type="text/javascript" src= "scripts/js/thirdparty/angular.min.js">
+
+    </script>
+    <script type="text/javascript" src="scripts/js/own/signup.js">
+
+    </script>
+  </head>
+  <body ng-app="signup" ng-controller="signupController">
+    <form class="" name="signupForm">
+      <table>
+        <tr>
+          <td><input type="email" name="emailId" value="" placeholder="Email Id" ng-model="email"></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td><input type="password" name="pwd" value="" placeholder="Password" ng-model=pwd></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td><input type="password" name="" value="" placeholder="Re type password"></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td><input type="tel" name="mobile" value="" placeholder="Mobile no"></td>
+          <td><span></span></td>
+        </tr>
+        <tr>
+          <td><select name="admin" ng-model="selectedAdmin" ng-options="admin for admin in adminList">
+              <option value=''>Select Admin</option>
+          </select></td>
+        </tr>
+        <tr>
+          <td><input type="button" name="" value="Save" ng-click="save()"></td>
+        </tr>
+      </table>
+    </form>
+
+  </body>
+</html>
