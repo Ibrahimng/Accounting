@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Accounting</title>
+    <!-- For Devlopment -->
+    <script src="scripts/js/thirdparty/angular.min.js"></script>
+    <!-- For production -->
+    <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
+    <script type="text/javascript" src="scripts/js/own/login.js">
+
+    </script>
+  </head>
+  <body ng-app="login" ng-controller="loginController">
+    <form name="loginForm">
+      <table>
+        <tr>
+          <td><input type="email" name="userName" value="" placeholder="Email Id" ng-model="userName"></td>
+          <td><span ng-show="loginForm.userName.$touched && loginForm.userName.$invalid">Email Id is invalid</span></td>
+        </tr>
+        <tr>
+          <td><input type="password" name="pwd" value="" placeholder="Password" ng-model="pwd"></td>
+          <td><span ng-show="loginForm.pwd.$touched">Password can not be empty.</span></td>
+        </tr>
+        <tr>
+          <td><input type="submit" name="" value="Login" ng-click="submit()" ng-disabled="loginForm.$invalid"></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
