@@ -1,0 +1,3 @@
+Create a database named as "billing"
+insert the file available in database_files folder
+updated sql file will be numbered subsequently.
