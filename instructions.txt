@@ -1,3 +1,7 @@
 Create a database named as "billing"
 insert the file available in database_files folder
 updated sql file will be numbered subsequently.
+run this into your phpmyadmin panel after inserting that file:-
+
+INSERT INTO `login` (`Id`, `Name`, `Email`, `Password`) VALUES (NULL, 'Sanorous', 'abc@xyz.com', 'abc123');
+
