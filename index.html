@@ -9,26 +9,43 @@
     <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
     <script type="text/javascript" src="scripts/js/own/login.js"></script>
     <script type="text/javascript" src="scripts/js/thirdparty/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/own/style.css">
+    <link rel="stylesheet" href="css/thirdparty/bootstrap.css">
+    <link rel="stylesheet" href="css/thirdparty/bootstrap.min.css">
   </head>
-  <body ng-app="login" ng-controller="loginController">
-  <center>
-    <a href="signUp.html">Sign up New user</a>
-    <form name="loginForm">
-      <table>
-        <tr>
-          <td><input type="email" name="userName" value="" placeholder="Email Id" ng-model="userName" required></td>
-          <td><span ng-show="loginForm.userName.$touched && loginForm.userName.$invalid">Email Id is invalid</span></td>
-        </tr>
-        <tr>
-          <td><input type="password" name="pwd" value="" placeholder="Password" ng-model="pwd" required></td>
-          <!--<td><span ng-show="loginForm.pwd.$touched">Password can not be empty.</span></td>-->
-        </tr>
-        <tr>
-          <td><input type="submit" name="" value="Login" ng-click="submit()" ng-disabled="loginForm.$invalid"></td>
-        </tr>
-      </table>
-    </form>
+  <body style="background-color:#C0C0C0"  ng-app="login" ng-controller="loginController">
+
+
+    <div class="container">
+	       <div class="login">
+		          <h4>Login to Accounting</h4>
+			             <hr>
+                    <form class="login-inner" name="loginForm">
+
+                      <input type="email"  name="userName" class="form-control email" id="email-input" ng-model="userName" placeholder="Enter email" required>
+                      <input type="password" ng-model="pwd" class="form-control password" id="password-input" placeholder="Password" required>
+                      <label class="checkbox-inline">
+                        <input type="checkbox" id="remember" value="Remember me"> Remember me
+                      </label>
+                      <input class="btn btn-block btn-lg btn-success submit" type="submit" value="Login" ng-click="submit()" ng-disabled="loginForm.$invalid">
+                      <!--  <table>
+                            <tr>
+                            <td><input type="email"  name="userName" value="" placeholder="Email Id" ng-model="userName" required></td>
+                            <td><span ng-show="loginForm.userName.$touched && loginForm.userName.$invalid">Email Id is invalid</span></td>
+                          </tr>
+                          <tr>
+                            <td><input type="password" name="pwd" value="" placeholder="Password" ng-model="pwd" required></td>
+                            <!--<td><span ng-show="loginForm.pwd.$touched">Password can not be empty.</span></td>
+                          </tr>
+                          <tr>
+                            <td><input type="submit" name="" value="Login" ng-click="submit()" ng-disabled="loginForm.$invalid"></td>
+                          </tr>
+                        </table>-->
+                      </form>
+                      <a href="signUp.html" class="btn btn-sm btn-primary register">Register</a>
+			                <a href="#" class="btn btn-sm btn-default forgot">Forgot your password?</a>
+                    </div>
+                  </div>
     <span>{{codeStatus}}</span>
-    </center>
   </body>
 </html>
