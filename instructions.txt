@@ -5,3 +5,7 @@ run this into your phpmyadmin panel after inserting that file:-
 
 INSERT INTO `login` (`Id`, `Name`, `Email`, `Password`) VALUES (NULL, 'Sanorous', 'abc@xyz.com', 'abc123');
 
+updated query
+
+ALTER TABLE `login` ADD `Salt` VARCHAR(100) NOT NULL AFTER `Password`, ADD `Mobile` VARCHAR(50) NOT NULL AFTER `Salt`, ADD `Update_date` VARCHAR(100) NOT NULL AFTER `Mobile`, ADD `Update_by` VARCHAR(100) NOT NULL AFTER `Update_date`;
+
