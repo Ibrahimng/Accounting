@@ -11,14 +11,16 @@
     </script>
   </head>
   <body ng-app="signup" ng-controller="signupController">
-    <form class="" name="signupForm">
+    <center>
+      <h1>Sign up page for new User</h1>
+    <form class="" name="signupForm" action="php/signup.php">
       <table>
         <tr>
-          <td><input type="email" name="emailId" value="" placeholder="Email Id" ng-model="email"></td>
+          <td><input type="email" name="Email" value="" placeholder="Email Id" ng-model="email"></td>
           <td><span></span></td>
         </tr>
         <tr>
-          <td><input type="password" name="pwd" value="" placeholder="Password" ng-model=pwd></td>
+          <td><input type="password" name="Password" value="" placeholder="Password" ng-model=pwd></td>
           <td><span></span></td>
         </tr>
         <tr>
@@ -26,11 +28,11 @@
           <td><span></span></td>
         </tr>
         <tr>
-          <td><input type="tel" name="mobile" value="" placeholder="Mobile no"></td>
+          <td><input type="tel" name="Mobile" value="" placeholder="Mobile no"></td>
           <td><span></span></td>
         </tr>
         <tr>
-          <td><select name="admin" ng-model="selectedAdmin" ng-options="admin for admin in adminList">
+          <td><select name="Updated_by" ng-model="selectedAdmin" ng-options="admin for admin in adminList">
               <option value=''>Select Admin</option>
           </select></td>
         </tr>
@@ -39,6 +41,6 @@
         </tr>
       </table>
     </form>
-
+</center>
   </body>
 </html>
