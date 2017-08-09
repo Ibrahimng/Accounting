@@ -3,41 +3,39 @@
   <head>
     <meta charset="utf-8">
     <title>Sign up new User</title>
-    <script type="text/javascript" src= "scripts/js/thirdparty/angular.min.js">
+    <script type="text/javascript" src= "scripts/js/thirdparty/angular.min.js"></script>
 
-    </script>
-    <script type="text/javascript" src="scripts/js/own/signup.js">
-
-    </script>
   </head>
-  <body ng-app="signup" ng-controller="signupController">
+  <body >
     <center>
       <h1>Sign up page for new User</h1>
-    <form class="" name="signupForm" action="php/signup.php">
+    <form action="php/signup.php" method="post">
       <table>
         <tr>
-          <td><input type="email" name="Email" value="" placeholder="Email Id" ng-model="email"></td>
+          <td><input type="text" name="Email" value="" placeholder="Email Id" ></td>
           <td><span></span></td>
         </tr>
         <tr>
-          <td><input type="password" name="Password" value="" placeholder="Password" ng-model=pwd></td>
+          <td><input type="password" name="Password" value="" placeholder="Password" ></td>
           <td><span></span></td>
         </tr>
         <tr>
-          <td><input type="password" name="" value="" placeholder="Re type password"></td>
+          <td><input type="password" name="PasswordConfirm" value="" placeholder="Re type password"></td>
           <td><span></span></td>
         </tr>
         <tr>
-          <td><input type="tel" name="Mobile" value="" placeholder="Mobile no"></td>
+          <td><input type="text" name="Mobile" value="" placeholder="Mobile no"></td>
           <td><span></span></td>
         </tr>
         <tr>
-          <td><select name="Updated_by" ng-model="selectedAdmin" ng-options="admin for admin in adminList">
-              <option value=''>Select Admin</option>
+          <td><select type="text" name="Updated_by" ng-model="selectedAdmin">
+              <option value="Vishwas">Vishwas</option>
+              <option value="Pradeep">Pradeep</option>
+              <option value="Nripendra">Nripendra</option>
           </select></td>
         </tr>
         <tr>
-          <td><input type="button" name="" value="Save" ng-click="save()"></td>
+          <td><input type="submit" name="submit" value="Save"></td>
         </tr>
       </table>
     </form>
