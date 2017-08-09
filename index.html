@@ -4,26 +4,37 @@
     <meta charset="utf-8">
     <title>Accounting</title>
     <!-- For Devlopment -->
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/thirdparty/bootstrapValidator.css">
+    <link rel="stylesheet" href="css/own/style.css">
+
     <script src="scripts/js/thirdparty/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/js/thirdparty/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/js/thirdparty/bootstrapValidator.js">
+    </script>
     <!-- For production -->
     <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
-    <script type="text/javascript" src="scripts/js/own/login.js"></script>
-    <script type="text/javascript" src="scripts/js/thirdparty/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/own/style.css">
-    <link rel="stylesheet" href="css/thirdparty/bootstrap.css">
-    <link rel="stylesheet" href="css/thirdparty/bootstrap.min.css">
+    <!--<script type="text/javascript" src="scripts/js/own/login.js"></script>-->
   </head>
-  <body style="background-color:#C0C0C0"  ng-app="login" ng-controller="loginController">
+<!--<body class="bg-color"  ng-app="login" ng-controller="loginController">-->
 
-
+<body class="bg-color">
     <div class="container">
 	       <div class="login">
 		          <h4>Login to Accounting</h4>
 			             <hr>
-                    <form class="login-inner" name="loginForm">
+                    <form id="loginform" class="login-inner form-horizontal" name="loginForm">
 
-                      <input type="email"  name="userName" class="form-control email" id="email-input" ng-model="userName" placeholder="Enter email" required>
-                      <input type="password" ng-model="pwd" class="form-control password" id="password-input" placeholder="Password" required>
+                      <div class="form-group">
+                      <input type="email"  name="userName" class="login-control" id="email-input" placeholder="Enter email">
+                      </div>
+
+                      <div class="form-group">
+                      <input type="password" name="password" class="login-control" id="password-input" placeholder="Password">
+                      </div>
+
                       <label class="checkbox-inline">
                         <input type="checkbox" id="remember" value="Remember me"> Remember me
                       </label>
@@ -46,6 +57,47 @@
 			                <a href="#" class="btn btn-sm btn-default forgot">Forgot your password?</a>
                     </div>
                   </div>
-    <span>{{codeStatus}}</span>
+  <!--  <span>{{codeStatus}}</span>-->
+  <script type="text/javascript">
+$(document).ready(function() {
+    $('#loginform')
+    .bootstrapValidator({
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            userName: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required and can\'t be empty'
+                    },
+                    emailAddress: {
+                        message: 'The input is not a valid email address'
+                    },
+
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required and can\'t be empty'
+                    },
+                    stringLength: {
+                            min: 6,
+                            message: 'The password must be more than 6 characters long'
+                        },
+                        different: {
+                            field: 'password',
+                            message: 'The username and password cannot be the same as each other'
+                        }
+                }
+            }
+        }
+    })
+  });
+  </script>
   </body>
 </html>

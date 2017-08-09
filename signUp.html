@@ -3,44 +3,142 @@
   <head>
     <meta charset="utf-8">
     <title>Sign up new User</title>
-    <script type="text/javascript" src= "scripts/js/thirdparty/angular.min.js">
-
+    <!--JS SCRIPT-->
+    <script type="text/javascript" src="scripts/js/thirdparty/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/js/thirdparty/bootstrapValidator.js">
     </script>
-    <script type="text/javascript" src="scripts/js/own/signup.js">
+    <!--CSS LINKS-->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/thirdparty/bootstrapValidator.css">
+    <link rel="stylesheet" href="css/own/style.css">
 
-    </script>
+
   </head>
-  <body ng-app="signup" ng-controller="signupController">
-    <center>
-      <h1>Sign up page for new User</h1>
-    <form class="" name="signupForm" action="php/signup.php">
-      <table>
-        <tr>
-          <td><input type="email" name="Email" value="" placeholder="Email Id" ng-model="email"></td>
-          <td><span></span></td>
-        </tr>
-        <tr>
-          <td><input type="password" name="Password" value="" placeholder="Password" ng-model=pwd></td>
-          <td><span></span></td>
-        </tr>
-        <tr>
-          <td><input type="password" name="" value="" placeholder="Re type password"></td>
-          <td><span></span></td>
-        </tr>
-        <tr>
-          <td><input type="tel" name="Mobile" value="" placeholder="Mobile no"></td>
-          <td><span></span></td>
-        </tr>
-        <tr>
-          <td><select name="Updated_by" ng-model="selectedAdmin" ng-options="admin for admin in adminList">
-              <option value=''>Select Admin</option>
-          </select></td>
-        </tr>
-        <tr>
-          <td><input type="button" name="" value="Save" ng-click="save()"></td>
-        </tr>
-      </table>
-    </form>
-</center>
-  </body>
+  <body class="bg-color">
+<div class="container">
+  <div class="signup">
+    <div class="row">
+        <!-- form: -->
+        <section>
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="page-header">
+                    <h4>Sign up in Accounting</h4>
+                </div>
+
+                <form id="SignUpForm" method="post" class="form-horizontal" action="target.php"
+                      data-bv-message="This value is not valid"
+                      data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+                      data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+                      data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Full name</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" name="firstName" placeholder="First name" required data-bv-notempty-message="The first name is required and cannot be empty" />
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" name="lastName" placeholder="Last name" required data-bv-notempty-message="The last name is required and cannot be empty" />
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Email address</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" name="email" type="email" required data-bv-emailaddress-message="The input is not a valid email address" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Mobile No.</label>
+                        <div class="col-lg-8">
+                          <input type="text" class="form-control" name="mobilePhone"
+                           required data-bv-notempty-message="The mobile phone number is required"
+                           data-bv-digits data-bv-digits-message="The mobile phone number is not valid"
+                           dat-bv-digits-minlength="10"/>
+                        </div>
+                      </div>
+
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Password</label>
+                        <div class="col-lg-5">
+                            <input type="password" class="form-control" name="password"
+                                   required data-bv-notempty-message="The password is required and cannot be empty"
+                                   data-bv-identical="true" data-bv-identical-field="confirmPassword" data-bv-identical-message="The password and its confirm are not the same"
+                                   data-bv-different="true" data-bv-different-field="username" data-bv-different-message="The password cannot be the same as username"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Retype password</label>
+                        <div class="col-lg-5">
+                            <input type="password" class="form-control" name="confirmPassword"
+                                   required data-bv-notempty-message="The confirm password is required and cannot be empty"
+                                   data-bv-identical="true" data-bv-identical-field="password" data-bv-identical-message="The password and its confirm are not the same"
+                                   data-bv-different="true" data-bv-different-field="username" data-bv-different-message="The password cannot be the same as username"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                            <label class="col-lg-3 control-label" id="captchaOperation"></label>
+                            <div class="col-lg-3">
+                                <input type="text" class="form-control" name="captcha" />
+                            </div>
+                        </div>
+
+
+                    <div class="form-group">
+                        <div class="col-lg-9 col-lg-offset-1">
+                            <button type="submit" class="btn btn-primary">Sign up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- :form -->
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+      function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    };
+    $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+
+        $('#SignUpForm').bootstrapValidator({
+          message: 'This value is not valid',
+          feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+              mobilePhone:{
+                validators: {
+                  stringLength: {
+                          min: 10,
+                          max:10,
+                          message: 'Mobile number must be  10 digit long'
+                      }
+
+                  }
+              },
+            captcha: {
+                validators: {
+                      callback: {
+                          message: 'Wrong answer',
+                            callback: function(value, validator) {
+                              var items = $('#captchaOperation').html().split(' '), sum = parseInt(items[0]) + parseInt(items[2]);
+                              return value == sum;
+            }
+        }
+    }
+}
+}
+        });
+    });
+</script>
+</body>
 </html>
