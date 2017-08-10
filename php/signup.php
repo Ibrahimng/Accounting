@@ -20,7 +20,7 @@ $con = mysqli_connect('localhost', 'root', '', 'billing');
  $sql="INSERT INTO login (Email,Password,PasswordConfirm,HashedPassword,Mobile,Updated_date,Updated_by)
 		 VALUES ('$Email','$Password','$PasswordConfirm','$HashedPassword','$Mobile',now(),'$Updated_by')";
 
- header("Location: ../main.php");*/
+ header("Location: ../main.php");
 
  ?>
 <?php ob_end_flush(); ?>
