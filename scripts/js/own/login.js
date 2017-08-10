@@ -2,13 +2,12 @@
 
 var login = angular.module("login",[]);
 login.controller("loginController",function($scope, $window, $http,$templateCache){
-$scope.codeStatus="";
 $scope.submit = function(){
   var method = 'POST';
   var url = 'php/login.php';
   var FormData = {
-    'name' : $scope.userName,
-    'password' : $scope.pwd
+    'name' : $scope.email,
+    'password' : $scope.password
   };
 
   $http({
@@ -19,8 +18,6 @@ $scope.submit = function(){
     cache: $templateCache
   }).
   then(function(response) {
-
-   $scope.codeStatus = response.status;
    if(response.status === 200){
      $window.location.href="main.html";
 }else{

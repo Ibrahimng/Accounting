@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="css/own/style.css">
 
     <script src="scripts/js/thirdparty/angular.min.js"></script>
+    <script src="scripts/js/own/login.js">
+
+    </script>
     <script type="text/javascript" src="scripts/js/thirdparty/jquery.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/js/thirdparty/bootstrapValidator.js">
@@ -20,25 +23,25 @@
   </head>
 <!--<body class="bg-color"  ng-app="login" ng-controller="loginController">-->
 
-<body class="bg-color">
+<body class="bg-color" ng-app="login" ng-controller="loginController">
     <div class="container">
 	       <div class="login">
 		          <h4>Login to Accounting</h4>
 			             <hr>
-                    <form id="loginform" class="login-inner form-horizontal" name="loginForm">
+                    <form id="loginform" method="post" ng-submit="submit()" class="login-inner form-horizontal" name="loginForm">
 
                       <div class="form-group">
-                      <input type="email"  name="userName" class="login-control" id="email-input" placeholder="Enter email">
+                      <input type="email"  ng-model="email" name="userName" class="login-control" id="email-input" placeholder="Enter email">
                       </div>
 
                       <div class="form-group">
-                      <input type="password" name="password" class="login-control" id="password-input" placeholder="Password">
+                      <input type="password" ng-model="password" name="password" class="login-control" id="password-input" placeholder="Password">
                       </div>
 
                       <label class="checkbox-inline">
                         <input type="checkbox" id="remember" value="Remember me"> Remember me
                       </label>
-                      <input class="btn btn-block btn-lg btn-success submit" type="submit" value="Login" ng-click="submit()" ng-disabled="loginForm.$invalid">
+                      <input class="btn btn-block btn-lg btn-success submit" type="submit" value="Login" ng-disabled="loginForm.$invalid">
                       <!--  <table>
                             <tr>
                             <td><input type="email"  name="userName" value="" placeholder="Email Id" ng-model="userName" required></td>
@@ -46,7 +49,7 @@
                           </tr>
                           <tr>
                             <td><input type="password" name="pwd" value="" placeholder="Password" ng-model="pwd" required></td>
-                            <!--<td><span ng-show="loginForm.pwd.$touched">Password can not be empty.</span></td>
+                            <td><span ng-show="loginForm.pwd.$touched">Password can not be empty.</span></td>
                           </tr>
                           <tr>
                             <td><input type="submit" name="" value="Login" ng-click="submit()" ng-disabled="loginForm.$invalid"></td>
