@@ -8,7 +8,7 @@
  $Email=$data->email;
  $Password=$data->password;
  $Mobile=$data->mobile;
- $updatedBy=$data->updatedBy;
+ $UpdatedBy=$data->updatedBy;
 
  $HashedPassword= password_hash('$Password', PASSWORD_DEFAULT, ['cost' => 10]);
 
