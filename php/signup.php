@@ -10,13 +10,13 @@
  $Mobile=$data->mobile;
  $UpdatedBy=$data->updatedBy;
 
- $HashedPassword= password_hash('$Password', PASSWORD_DEFAULT, ['cost' => 10]);
+ //$HashedPassword= password_hash('pradeep', PASSWORD_DEFAULT, ['cost' => 10]);
 
  // Connects to your Database
  $con = mysqli_connect('localhost', 'root', '', 'billing');
  //Writes the information to the database
  $sql="INSERT INTO login (Email,Name,HashedPassword,Mobile,UpdatedDate,UpdatedBy)
-		 VALUES ('$Email','$Name','$HashedPassword','$Mobile',now(),'$UpdatedBy')";
+		 VALUES ('$Email','$Name','test','$Mobile',now(),'$UpdatedBy')";
 
  //header("Location: ../main.php");
 echo "true";
