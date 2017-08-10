@@ -88,6 +88,10 @@ $(document).ready(function() {
                     notEmpty: {
                         message: 'The password is required and can\'t be empty'
                     },
+                    regexp: {
+                        regexp: /^(?=.*[0-9])(?=.*[a-zA-Z])/,
+                        message: 'The Password must have atleast one alphabet and one number'
+                    },
                     stringLength: {
                             min: 6,
                             message: 'The password must be more than 6 characters long'
