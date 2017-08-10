@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <title>Sign up new User</title>
     <!--JS SCRIPT-->
+
+    <script src="scripts/js/thirdparty/angular.min.js"></script>
+    <script src="scripts/js/own/signup.js"></script>
     <script type="text/javascript" src="scripts/js/thirdparty/jquery.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/js/thirdparty/bootstrapValidator.js">
@@ -15,7 +18,7 @@
 
 
   </head>
-  <body class="bg-color">
+  <body class="bg-color" ng-app="signup" ng-controller="signupController">
 <div class="container">
   <div class="signup">
     <div class="row">
@@ -26,7 +29,7 @@
                     <h4>Sign up in Accounting</h4>
                 </div>
 
-                <form id="SignUpForm" method="post" class="form-horizontal" action="php/signup.php"
+                <form id="SignUpForm" method="post" class="form-horizontal" ng-submit="save()"
                       data-bv-message="This value is not valid"
                       data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
                       data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
@@ -34,7 +37,7 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Full name</label>
                         <div class="col-lg-8">
-                            <input type="text" class="form-control" name="Name" placeholder="Name" required data-bv-notempty-message="The first name is required and cannot be empty" />
+                            <input type="text" ng-model="name" class="form-control" name="Name" placeholder="Name" required data-bv-notempty-message="The first name is required and cannot be empty" />
                         </div>
                         <!--<div class="col-lg-4">
                             <input type="text" class="form-control" name="lastName" placeholder="Last name" required data-bv-notempty-message="The last name is required and cannot be empty" />
@@ -45,13 +48,13 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Email address</label>
                         <div class="col-lg-8">
-                            <input class="form-control" name="Email" type="email" required data-bv-emailaddress-message="The input is not a valid email address" />
+                            <input class="form-control" ng-model="email" name="Email" type="email" required data-bv-emailaddress-message="The input is not a valid email address" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Mobile No.</label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" name="Mobile"
+                          <input type="text" ng-model ="mobile" class="form-control" name="Mobile"
                            required data-bv-notempty-message="The mobile phone number is required"
                            data-bv-digits data-bv-digits-message="The mobile phone number is not valid"
                            dat-bv-digits-minlength="10"/>
@@ -62,7 +65,7 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Password</label>
                         <div class="col-lg-5">
-                            <input type="password" class="form-control" name="Password"
+                            <input type="password" ng-model="password" class="form-control" name="Password"
                                    required data-bv-notempty-message="The password is required and cannot be empty"
                                    data-bv-identical="true" data-bv-identical-field="confirmPassword" data-bv-identical-message="The password and its confirm are not the same"
                                    data-bv-different="true" data-bv-different-field="username" data-bv-different-message="The password cannot be the same as username"/>
@@ -82,10 +85,8 @@
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Admin name</label>
                         <div class="col-lg-8">
-                            <select type="text" class="form-control" name="Updated_by" placeholder="Admin name" required data-bv-notempty-message="The Admin name is required who has added this" />
-                            <option value="Pradeep">Pradeep</option>
-                            <option value="Vishwas">Vishwas</option>
-                            <option value="Nipendra">Nipendra</option>
+                            <select type="text" ng-model="selectedAdmin" class="form-control" name="Updated_by" placeholder="Admin name" required data-bv-notempty-message="The Admin name is required who has added this" ng-options="admin for admin in adminList" />
+                            <option value="">Select Admin</option>
                           </select>
                         </div>
                       </div>
