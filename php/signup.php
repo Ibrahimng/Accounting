@@ -15,8 +15,8 @@
  // Connects to your Database
  $con = mysqli_connect('localhost', 'root', '', 'billing');
  //Writes the information to the database
- mysql_query("INSERT INTO login ('Email','Name','HashedPassword','Mobile','UpdatedDate','UpdatedBy')
-		 VALUES ('".$Email"','".$Name"','"test"','".$Mobile"','now()','".$UpdatedBy"')");
+ mysqli_query("INSERT INTO login (Email,Name,HashedPassword,Mobile,UpdatedDate,UpdatedBy)
+		 VALUES ('$Email','$Name','test','$Mobile',now(),'$UpdatedBy')");
 
  //header("Location: ../main.php");
 echo "true";
