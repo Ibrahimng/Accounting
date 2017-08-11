@@ -41,9 +41,7 @@
 
                     <div class="form-group">
                         <div class="col-lg-8">
-                            <input data-toggle="tooltip" title="Please enter your email." data-placement="right" class="form-control" ng-model="email" name="Email" type="email" placeholder="Email address" required data-bv-emailaddress-message="The input is not a valid email address" />
-
-                            <input class="form-control" ng-model="email" ng-blur ="validateEmail($event)" name="Email" type="email" placeholder="Email address" required data-bv-emailaddress-message="The input is not a valid email address" />
+                            <input data-toggle="tooltip" title="Please enter your email." data-placement="right" class="form-control" ng-model="email" ng-blur ="validateEmail($event)" name="Email" type="email" placeholder="Email address" required data-bv-emailaddress-message="The input is not a valid email address" />
                         </div>
                         <span>{{codeStatus}}</span>
                     </div>
