@@ -1,6 +1,6 @@
 'use strict'
 var app = angular.module("signup",[]);
-app.controller("signupController",function($scope,$http,$templateCache){
+app.controller("signupController",function($scope,$http,$templateCache,$window){
 $scope.adminList = ['vp.msdos@gmail.com','prad33p.verma@gmail.com','nripendra.bajpai@gmail.com'];
 $scope.save = function(){
   var method = 'POST';
@@ -25,7 +25,7 @@ $scope.save = function(){
    $scope.codeStatus = response.status;
    if(response.status === 200){
      console.log(JSON.stringify(response.data));
-     //$window.location.href="main.html";
+     $window.location.href="../accounting/main.php";
   }else{
   console.log("no redirect");
   }

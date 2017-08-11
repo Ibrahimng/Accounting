@@ -18,7 +18,8 @@
  mysqli_query($con,"INSERT INTO login (Email,Name,HashedPassword,Mobile,UpdatedDate,UpdatedBy)
 		 VALUES ('$Email','$Name','$HashedPassword','$Mobile',now(),'$UpdatedBy')");
 
- //header("Location: ../main.php");
-echo "true";
+ header("Location: ../main.php");
+//echo "true";
+exit;
  ?>
 <?php ob_end_flush(); ?>
