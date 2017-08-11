@@ -49,8 +49,9 @@
                     <div class="form-group">
                         <!--<label class="col-lg-3 control-label">Email address</label>-->
                         <div class="col-lg-8">
-                            <input class="form-control" ng-model="email" name="Email" type="email" placeholder="Email address" required data-bv-emailaddress-message="The input is not a valid email address" />
+                            <input class="form-control" ng-model="email" ng-blur ="validateEmail($event)" name="Email" type="email" placeholder="Email address" required data-bv-emailaddress-message="The input is not a valid email address" />
                         </div>
+                        <span>{{codeStatus}}</span>
                     </div>
                     <div class="form-group">
                         <!--<label class="col-lg-3 control-label">Mobile No.</label>-->
@@ -143,7 +144,7 @@
                   validators: {
 
                     regexp: {
-                        regexp: /^(?=.*[0-9])(?=.*[a-zA-Z])/,         
+                        regexp: /^(?=.*[0-9])(?=.*[a-zA-Z])/,
                         message: 'The Password must have atleast one alphabet and one number'
                     },
 

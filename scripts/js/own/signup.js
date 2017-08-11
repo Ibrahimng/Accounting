@@ -22,13 +22,45 @@ $scope.save = function(){
   }).
   then(function(response) {
 
-   $scope.codeStatus = response.status;
    if(response.status === 200){
      console.log(JSON.stringify(response.data));
      $window.location.href="../accounting/main.php";
   }else{
   console.log("no redirect");
   }
+
+  },function(err){
+
+  });
+  return false;
+};
+
+$scope.validateEmail = function($event){
+  var method = 'POST';
+  var url = 'php/validateEmail.php';
+  var FormData = {
+    'email' : $scope.email
+  };
+
+  $http({
+    method: method,
+    url: url,
+    data: FormData,
+    headers: {'Content-Type': 'application/json'},
+    cache: $templateCache
+  }).
+  then(function(response) {
+
+    console.log(JSON.stringify(response));
+
+     if(response.data){
+
+       $scope.codeStatus = "Already Exists!";
+
+     }else{
+
+       $scope.codeStatus ="";
+     }
 
   },function(err){
 
