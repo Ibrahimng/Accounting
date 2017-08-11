@@ -3,20 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>Sign up new User</title>
-    <!--JS SCRIPT-->
+    <!--CSS LINKS-->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/thirdparty/bootstrapValidator.css">
+    <link rel="stylesheet" href="css/own/style.css">
 
+    <!--JS SCRIPT-->
     <script src="scripts/js/thirdparty/angular.min.js"></script>
     <script src="scripts/js/own/signup.js"></script>
     <script type="text/javascript" src="scripts/js/thirdparty/jquery.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="scripts/js/thirdparty/bootstrapValidator.js">
     </script>
-    <!--CSS LINKS-->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="css/thirdparty/bootstrapValidator.css">
-    <link rel="stylesheet" href="css/own/style.css">
-
-
   </head>
   <body class="bg-color" ng-app="signup" ng-controller="signupController">
 <div class="container">
@@ -36,48 +34,37 @@
                       data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
                       data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
                     <div class="form-group">
-                        <!--<label class="col-lg-3 control-label">Full name</label>-->
                         <div class="col-lg-8">
-                            <input type="text" ng-model="name" class="form-control" name="Name" placeholder="Name" required data-bv-notempty-message="The first name is required and cannot be empty" />
+                            <input data-toggle="tooltip" title="Please enter full name." data-placement="right" type="text" ng-model="name" class="form-control" name="Name" placeholder="Name" required data-bv-notempty-message="The first name is required and cannot be empty" />
                         </div>
-                        <!--<div class="col-lg-4">
-                            <input type="text" class="form-control" name="lastName" placeholder="Last name" required data-bv-notempty-message="The last name is required and cannot be empty" />
-                        </div>-->
                     </div>
 
-
                     <div class="form-group">
-                        <!--<label class="col-lg-3 control-label">Email address</label>-->
                         <div class="col-lg-8">
-                            <input class="form-control" ng-model="email" name="Email" type="email" placeholder="Email address" required data-bv-emailaddress-message="The input is not a valid email address" />
+                            <input data-toggle="tooltip" title="Please enter your email." data-placement="right" class="form-control" ng-model="email" name="Email" type="email" placeholder="Email address" required data-bv-emailaddress-message="The input is not a valid email address" />
                         </div>
                     </div>
                     <div class="form-group">
-                        <!--<label class="col-lg-3 control-label">Mobile No.</label>-->
                         <div class="col-lg-8">
-                          <input type="text" ng-model ="mobile" class="form-control" name="Mobile" placeholder="Mobile Number"
+                          <input id="mobno" data-toggle="tooltip" title="Please enter mobile number. It must be 10 digit long." data-placement="right" type="text" ng-model ="mobile" class="form-control" name="Mobile" placeholder="Mobile Number"
                            required data-bv-notempty-message="The mobile phone number is required"
                            data-bv-digits data-bv-digits-message="The mobile phone number is not valid"
                            dat-bv-digits-minlength="10"/>
                         </div>
                       </div>
 
-
                     <div class="form-group">
-                        <!--<label class="col-lg-3 control-label">Password</label>-->
                         <div class="col-lg-6">
-                            <input type="password" ng-model="password" class="form-control" name="Password" placeholder="Password"
+                            <input data-toggle="tooltip" title="Password must have atleast 6 character with 1 digit and 1 alphabet." data-placement="right" type="password" ng-model="password" class="form-control" name="Password" placeholder="Password"
                                    required data-bv-notempty-message="The password is required and cannot be empty"
-
                                    data-bv-identical="true" data-bv-identical-field="confirmPassword" data-bv-identical-message="The password and its confirm are not the same"
                                    data-bv-different="true" data-bv-different-field="Name" data-bv-different-message="The password cannot be the same as username"/>
                         </div>
                     </div>
 
                     <div class="form-group">
-                      <!--  <label class="col-lg-3 control-label">Retype password</label>-->
                         <div class="col-lg-6">
-                            <input type="password" class="form-control" name="ConfirmPassword" placeholder="Confirm Password"
+                            <input data-toggle="tooltip" title="Re-type password." data-placement="right" type="password" class="form-control" name="ConfirmPassword" placeholder="Confirm Password"
                                    required data-bv-notempty-message="The confirm password is required and cannot be empty"
                                    data-bv-identical="true" data-bv-identical-field="Password" data-bv-identical-message="The password and its confirm are not the same"
                                    data-bv-different="true" data-bv-different-field="username" data-bv-different-message="The password cannot be the same as username"/>
@@ -85,9 +72,8 @@
                     </div>
 
                     <div class="form-group">
-                        <!--<label class="col-lg-3 control-label">Admin name</label>-->
                         <div class="col-lg-8">
-                            <select type="text" ng-model="selectedAdmin" class="form-control" name="Updated_by" placeholder="Admin name" required data-bv-notempty-message="The Admin name is required who has added this" ng-options="admin for admin in adminList" />
+                            <select data-toggle="tooltip" title="Please select admin." data-placement="right" type="text" ng-model="selectedAdmin" class="form-control" name="Updated_by" placeholder="Admin name" required data-bv-notempty-message="The Admin name is required who has added this" ng-options="admin for admin in adminList" />
                             <option value="">Select Admin</option>
                           </select>
                         </div>
@@ -129,7 +115,7 @@
             validating: 'glyphicon glyphicon-refresh'
             },
             fields: {
-              Mobile:{
+              z:{
                 validators: {
                   stringLength: {
                           min: 10,
@@ -143,7 +129,7 @@
                   validators: {
 
                     regexp: {
-                        regexp: /^(?=.*[0-9])(?=.*[a-zA-Z])/,         
+                        regexp: /^(?=.*[0-9])(?=.*[a-zA-Z])/,
                         message: 'The Password must have atleast one alphabet and one number'
                     },
 
