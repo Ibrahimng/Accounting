@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 06, 2017 at 07:55 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: Aug 11, 2017 at 10:43 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -27,10 +29,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `login` (
-  `Id` int(50) NOT NULL,
+  `SrNo` int(50) NOT NULL,
   `Name` varchar(200) NOT NULL,
   `Email` varchar(200) NOT NULL,
-  `Password` varchar(100) NOT NULL
+  `HashedPassword` varchar(500) NOT NULL,
+  `Mobile` varchar(200) NOT NULL,
+  `UpdatedBy` varchar(200) NOT NULL,
+  `UpdatedDate` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -41,7 +46,8 @@ CREATE TABLE `login` (
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`Email`),
+  ADD UNIQUE KEY `SrNo` (`SrNo`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -51,7 +57,8 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `Id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `SrNo` int(50) NOT NULL AUTO_INCREMENT;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
