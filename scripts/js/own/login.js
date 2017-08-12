@@ -19,7 +19,7 @@ $scope.submit = function(){
   }).
   then(function(response) {
    if(response.status === 200){
-     $window.location.href="main.php";
+     $window.location.href="main.html";
 }else{
   //console.log("no redirect");
   $window.location.href="index.html?err=1";
