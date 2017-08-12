@@ -21,8 +21,8 @@ $scope.save = function(){
     cache: $templateCache
   }).
   then(function(response) {
-    
-   if(response.status === 200 && response.data.length){
+
+   if(response.status === 200 && response.data.length > 24){
      alert("Sign up Sucessfull !");
      $window.location.href = "/main.php";
   }else{
