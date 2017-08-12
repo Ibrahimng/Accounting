@@ -1,12 +1,12 @@
 'use strict'
 
 var login = angular.module("login",[]);
-login.controller("loginController",function($scope, $window, $http,$templateCache){
+login.controller("loginController",function($scope, $window, $http, $templateCache){
 $scope.submit = function(){
   var method = 'POST';
   var url = 'php/login.php';
   var FormData = {
-    'name' : $scope.email,
+    'name' : $scope.userName,
     'password' : $scope.password
   };
 
@@ -19,9 +19,10 @@ $scope.submit = function(){
   }).
   then(function(response) {
    if(response.status === 200){
-     $window.location.href="main.html";
+     $window.location.href="main.php";
 }else{
-  console.log("no redirect");
+  //console.log("no redirect");
+  $window.location.href="index.html?err=1";
 }
 
   },function(err){
