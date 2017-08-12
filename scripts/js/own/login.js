@@ -31,10 +31,7 @@ $scope.submit = function(){
   return false;
 };
 
-/*if($scope.userName === "vp.msdos@gmail.com" && $scope.pwd === "test"){
-   //$window.location.href="main.html";
-   //Once deployed on server use ajax as mentioned below.
-   $http.get("main.html").then(function(response){
-  $scope.res = response.data;
-});*/
+$scope.forgetPassword = function(){
+alert("Contact accounting team for new password !");
+};
 });
