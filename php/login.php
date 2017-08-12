@@ -4,26 +4,24 @@ include("dbConnect.php");
 
 $data = json_decode(file_get_contents("php://input"));
 
-$Email=$data->userName;
+$Email=$data->email;
 $Password=$data->password;
-$HashedPassword= password_hash('$Password', PASSWORD_DEFAULT, ['cost' => 10]);
 
 $result =	mysqli_query($conn,"SELECT * FROM login WHERE Email='$Email' ");
-				//$password="Admin@123";
 
 				while($row = mysqli_fetch_array($result))
 				  {
 				  $loginId = $row['Email'];
-          $password = $row['HashedPassword'];
+          $PasswordFromDB = $row['HashedPassword'];
 				  }
-
-				if (password_verify($password, $HashedPassword))
+					//http://php.net/manual/en/function.password-verify.php
+				if (password_verify($Password, $PasswordFromDB))
 				{
-					header("Location: ../main.php");
-          echo="true";
+
+          echo "true";
 				}
 				else
 				{
-					header('location:../index.html?err=1');
+					echo "false";
 				}
 ?>

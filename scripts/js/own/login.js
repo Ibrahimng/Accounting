@@ -6,7 +6,7 @@ $scope.submit = function(){
   var method = 'POST';
   var url = 'php/login.php';
   var FormData = {
-    'name' : $scope.userName,
+    'email' : $scope.userName,
     'password' : $scope.password
   };
 
