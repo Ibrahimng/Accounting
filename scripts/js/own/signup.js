@@ -21,10 +21,10 @@ $scope.save = function(){
     cache: $templateCache
   }).
   then(function(response) {
-
-   if(response.status === 200){
-     console.log(JSON.stringify(response.data));
-     $window.location.href="../accounting/main.php";
+    
+   if(response.status === 200 && response.data.length){
+     alert("Sign up Sucessfull !");
+     $window.location.href = "/main.php";
   }else{
   console.log("no redirect");
   }
@@ -51,9 +51,7 @@ $scope.validateEmail = function($event){
   }).
   then(function(response) {
 
-    console.log(JSON.stringify(response));
-
-     if(response.data){
+     if(response.data.length > 28){
 
        $scope.codeStatus = "Already Exists!";
 
