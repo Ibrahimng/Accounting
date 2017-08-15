@@ -43,7 +43,7 @@
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Company</a>
                   <ul class="dropdown-menu">
                       <li><a href="#"> Open company</a></li>
-                      <li><a href="#"> Create company</a></li>
+                      <li><a href=""> Create company</a></li>
                       <li class="divider"></li>
                       <li><a href="#"> Back up Data</a></li>
                       <li><a href="#"> Restore Data</a></li>
@@ -139,8 +139,8 @@
     <div class="sidebar-nav ">
         <ul class="nav" id="side-menu">
             <li><button type="button" class="btn btn-primary custom btn-xs disabled">Shortcut Keys</button></li>
-            <li> <button type="button" class="btn btn-default custom btn-xs"><b>F1</b> &nbsp;&nbsp;Help</button></li>
-            <li> <button type="button" class="btn btn-default custom btn-xs"><b>F1</b>  &nbsp;&nbsp;Add Account</button></li>
+            <li> <button id="cc" type="button" class="btn btn-default custom btn-xs"><b>F1</b> &nbsp;&nbsp;Help</button></li>
+            <li> <button id="oc" type="button" class="btn btn-default custom btn-xs"><b>F1</b>  &nbsp;&nbsp;Add Account</button></li>
             <li> <button type="button" class="btn btn-default custom btn-xs"><u>F2</u>  &nbsp;&nbsp;Add item</button></li>
             <li> <button type="button" class="btn btn-default custom btn-xs"><u>F3</u>  &nbsp;&nbsp;Add Master</button></li>
             <li> <button type="button" class="btn btn-default custom btn-xs">F3 &nbsp;&nbsp; Add Voucher</button></li>
@@ -183,5 +183,17 @@
       <!-- Custom Theme JavaScript -->
       <script src="../dist/js/sb-admin-2.js"></script>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#cc").click(function(){
+      $('#mheading').html('create company');
+      $("#mpanel").load("createcompany.html");
+});
+$("#oc").click(function(){
+  $('#mheading').html('open company');
+  $("#mpanel").load("opencompany.html");
+});
+  });
+</script>
   </body>
 </html>
