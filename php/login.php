@@ -8,7 +8,7 @@ $Email=$data->email;
 $Password=$data->password;
 
 
-$result =	mysqli_query($conn,"SELECT Password FROM login WHERE Email='$Email' ");
+$result =	mysqli_query($conn,"SELECT HashedPassword FROM login WHERE Email='$Email' ");
 
 				while($row = mysqli_fetch_array($result))
 				  {
