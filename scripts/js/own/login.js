@@ -18,6 +18,7 @@ $scope.submit = function(){
     cache: $templateCache
   }).
   then(function(response) {
+    console.log(JSON.stringify(response));
    if(response.status === 200){
      $window.location.href="main.html";
 }else{
