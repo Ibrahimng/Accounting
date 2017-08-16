@@ -12,11 +12,11 @@ $result =	mysqli_query($conn,"SELECT HashedPassword FROM login WHERE Email='$Ema
 
 				while($row = mysqli_fetch_array($result))
 				  {
-				  $loginId = $row['Email'];
-          $PasswordFromDB = $row['HashedPassword'];
+				  //$loginId = $row['Email'];
+          $password_hash = $row['HashedPassword'];
 				  }
 					//http://php.net/manual/en/function.password-verify.php
-				if (password_verify($Password, $PasswordFromDB))
+				if (password_verify($Password, $password_hash))
 				{
           echo "true";
 				}
