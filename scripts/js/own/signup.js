@@ -1,6 +1,6 @@
 'use strict'
 var app = angular.module("signup",[]);
-app.controller("signupController",function($scope,$http,$templateCache,$window){
+app.controller("signupController",function($scope,$http,$templateCache,$window,$httpParamSerializerJQLike){
 $scope.adminList = ['vp.msdos@gmail.com','prad33p.verma@gmail.com','nripendra.bajpai@gmail.com'];
 $scope.save = function(){
   var method = 'POST';
@@ -16,12 +16,15 @@ $scope.save = function(){
   $http({
     method: method,
     url: url,
-    data: FormData,
-    headers: {'Content-Type': 'application/json'},
+    paramSerializer: '$httpParamSerializerJQLike',
+    data: $httpParamSerializerJQLike(FormData),
+    //data: FormData,
+  //  headers: {'Content-Type': 'application/json'},
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     cache: $templateCache
   }).
   then(function(response) {
-    
+    console.log(JSON.stringify(response));
    if(response.status === 200 && response.data.length > 22){
      alert("Sign up Sucessfull !");
      $window.location.href = "/main.php";

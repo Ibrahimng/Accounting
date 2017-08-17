@@ -1,7 +1,7 @@
 'use strict'
 
 var login = angular.module("login",[]);
-login.controller("loginController",function($scope, $window, $http, $templateCache){
+login.controller("loginController",function($scope, $window, $http, $templateCache,$httpParamSerializerJQLike){
 $scope.submit = function(){
   var method = 'POST';
   var url = 'php/login.php';
@@ -13,20 +13,25 @@ $scope.submit = function(){
   $http({
     method: method,
     url: url,
-    data: FormData,
-    headers: {'Content-Type': 'application/json'},
+    paramSerializer: '$httpParamSerializerJQLike',
+    data: $httpParamSerializerJQLike(FormData),
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
     cache: $templateCache
   }).
   then(function(response) {
-    console.log(JSON.stringify(response));
-   if(response.status === 200){
+    var resData = JSON.stringify(response.data);
+    console.log(resData.length);
+   if(response.status === 200 && resData.length === 28){
      $window.location.href="main.html";
-}else{
-  //console.log("no redirect");
-  $window.location.href="index.html?err=1";
-}
+   }else{
+
+     alert("Either Email id or Password is wrong !");
+
+  }
 
   },function(err){
+    $window.location.href="php/login.php";
+    console.log(JSON.stringify(err));
 
   });
   return false;
